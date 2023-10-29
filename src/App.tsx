@@ -6,13 +6,14 @@ import "./styles/index.scss";
 import { MainPageAsync } from "./pages/MainPage/MainPageAsync";
 import { AboutPageAsync } from "./pages/AboutPage/AboutPageAsync";
 import { useTheme } from "./hooks/useTheme";
+import { classNames } from "./helpers/classNames/classNames";
 
 interface AppProps {}
 
 export const App: FC<AppProps> = ({}) => {
   const { theme, toggleTheme } = useTheme();
   return (
-    <div className={`app ${theme}`}>
+    <div className={classNames("app", {}, [theme])}>
       <button onClick={toggleTheme}>toggle</button>
       <Link to={"/"}>Main</Link>
       <Link to={"/about"}>About</Link>
