@@ -1,12 +1,13 @@
-import { FC, Suspense, useContext, useState } from "react";
+import { FC, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 import "./styles/index.scss";
-import { MainPageAsync } from "./pages/MainPage/MainPageAsync";
-import { AboutPageAsync } from "./pages/AboutPage/AboutPageAsync";
-import { useTheme } from "./hooks/useTheme";
-import { classNames } from "./helpers/classNames/classNames";
+
+import { MainPageAsync } from "pages/MainPage";
+import { AboutPageAsync } from "pages/AboutPage";
+import { useTheme } from "./providers/ThemePrivider";
+import { classNames } from "shared/lib/classNames/classNames";
 
 interface AppProps {}
 
