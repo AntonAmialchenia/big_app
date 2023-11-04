@@ -9,12 +9,11 @@ import { classNames } from "shared";
 interface AppProps {}
 
 export const App: FC<AppProps> = ({}) => {
-  const { theme, toggleTheme } = useTheme();
+  const { theme } = useTheme();
   return (
     <div className={classNames("app", {}, [theme])}>
       <NavBar />
       <AppRouter />
-      <button onClick={toggleTheme}>toggle</button>
     </div>
   );
 };
