@@ -2,9 +2,10 @@ import { FC } from "react";
 import { useTheme } from "./providers/ThemePrivider";
 import { NavBar } from "widgets/NavBar";
 import { AppRouter } from "./providers/router";
+import { classNames } from "shared";
+import { Sidebar } from "widgets/Sidebar";
 
 import "./styles/index.scss";
-import { classNames } from "shared";
 
 interface AppProps {}
 
@@ -13,7 +14,12 @@ export const App: FC<AppProps> = ({}) => {
   return (
     <div className={classNames("app", {}, [theme])}>
       <NavBar />
-      <AppRouter />
+      <div className="content-page">
+        <Sidebar />
+        <div className="wrapper-page">
+          <AppRouter />
+        </div>
+      </div>
     </div>
   );
 };
