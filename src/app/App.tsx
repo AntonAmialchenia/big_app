@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, Suspense } from "react";
 import { useTheme } from "./providers/ThemePrivider";
 import { NavBar } from "widgets/NavBar";
 import { AppRouter } from "./providers/router";
@@ -13,13 +13,16 @@ export const App: FC<AppProps> = ({}) => {
   const { theme } = useTheme();
   return (
     <div className={classNames("app", {}, [theme])}>
-      <NavBar />
-      <div className="content-page">
-        <Sidebar />
-        <div className="wrapper-page">
-          <AppRouter />
+      <Suspense fallback="">
+        <NavBar />
+
+        <div className="content-page">
+          <Sidebar />
+          <div className="wrapper-page">
+            <AppRouter />
+          </div>
         </div>
-      </div>
+      </Suspense>
     </div>
   );
 };

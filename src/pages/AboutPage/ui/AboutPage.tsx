@@ -1,9 +1,11 @@
-import { FC } from "react";
+import { FC, useTransition } from "react";
+import { useTranslation } from "react-i18next";
 
 interface AboutPageProps {}
 
 const AboutPage: FC<AboutPageProps> = ({}) => {
-  return <div>AboutPage</div>;
+  const { t } = useTranslation("about");
+  return <div>{t("about_page")}</div>;
 };
 
 export default AboutPage;
