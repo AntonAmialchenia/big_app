@@ -7,9 +7,11 @@ export function classNames (
 ): string {
   return [
     cls,
-    ...additional.filter((item) => Boolean(item)),
-    ...Object.entries(mods)
-      .filter(([_, entry]) => Boolean(entry))
-      .map(([className]) => className)
+    ...(additional ? additional.filter((item) => Boolean(item)) : []),
+    ...(mods
+      ? Object.entries(mods)
+        .filter(([_, entry]) => Boolean(entry))
+        .map(([className]) => className)
+      : [])
   ].join(' ')
 }
