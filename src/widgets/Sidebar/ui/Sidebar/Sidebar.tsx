@@ -1,9 +1,9 @@
-import { FC, useState } from "react";
-import { ThemeSwitcher } from "widgets/ThemeSwitcher";
-import { LangSwitcher } from "widgets/LangSwitcher";
-import { classNames } from "shared";
+import { type FC, useState } from 'react';
+import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
+import { LangSwitcher } from 'widgets/LangSwitcher';
+import { classNames } from 'shared';
 
-import cls from "./Sidebar.module.scss";
+import cls from './Sidebar.module.scss';
 
 interface SidebarProps {
   className?: string;
@@ -11,7 +11,7 @@ interface SidebarProps {
 
 export const Sidebar: FC<SidebarProps> = ({ className }) => {
   const [collapsed, setCollapsed] = useState(false);
-  const onToggle = () => {
+  const onToggle = (): void => {
     setCollapsed((prev) => !prev);
   };
   return (
