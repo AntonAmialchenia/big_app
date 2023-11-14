@@ -3,9 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { routeConfig } from 'shared';
 import { PageLoader } from 'widgets/PageLoader';
 
-interface AppRouterProps {}
-
-export const AppRouter: FC<AppRouterProps> = ({}) => {
+export const AppRouter: FC = () => {
   return (
     <Suspense fallback={<PageLoader />}>
       <Routes>

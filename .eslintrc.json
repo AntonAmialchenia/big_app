@@ -34,6 +34,9 @@
             {
                 "markupOnly": true
             }
-        ]
+        ],
+        "@typescript-eslint/indent": "off",
+        "@typescript-eslint/space-before-function-paren": "off",
+        "n/handle-callback-err": "warn"
     }
 }

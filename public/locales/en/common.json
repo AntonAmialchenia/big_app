@@ -4,5 +4,7 @@
   "main_page": "Main Page",
   "main": "Main",
   "about": "About",
-  "not_found_page": "Not found page"
+  "not_found_page": "Not found page",
+  "refresh": "Refresh the page",
+  "unexpected_error": "An unexpected error occurred"
 }

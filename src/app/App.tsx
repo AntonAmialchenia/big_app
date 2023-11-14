@@ -1,4 +1,4 @@
-import { type FC, Suspense } from 'react';
+import { type FC, Suspense, useEffect } from 'react';
 import { useTheme } from './providers/ThemePrivider';
 import { NavBar } from 'widgets/NavBar';
 import { AppRouter } from './providers/router';
@@ -7,10 +7,9 @@ import { Sidebar } from 'widgets/Sidebar';
 
 import './styles/index.scss';
 
-interface AppProps {}
-
-export const App: FC<AppProps> = ({}) => {
+export const App: FC = () => {
   const { theme } = useTheme();
+
   return (
     <div className={classNames('app', {}, [theme])}>
       <Suspense fallback="">
