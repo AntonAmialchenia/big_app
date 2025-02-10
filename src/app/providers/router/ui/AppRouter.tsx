@@ -1,16 +1,28 @@
-import { type FC, Suspense } from 'react';
+import { ErrorBoundary } from 'app/providers/ErrorBoundary';
+import React, { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { routeConfig } from 'shared';
-import { PageLoader } from 'widgets/PageLoader';
+import { routeConfig } from 'shared/config/routeConfig/routeConfig';
+import { PageLoader } from 'shared/ui/PageLoader/PageLoader';
 
-export const AppRouter: FC = () => {
-  return (
-    <Suspense fallback={<PageLoader />}>
-      <Routes>
+const AppRouter = () => (
+    <Routes>
         {Object.values(routeConfig).map(({ element, path }) => (
-          <Route key={path} path={path} element={element} />
+            <Route
+                key={path}
+                path={path}
+                element={(
+                    <ErrorBoundary>
+                        <Suspense fallback={<PageLoader />}>
+                            <div className="page-wrapper">
+                                {element}
+                            </div>
+                        </Suspense>
+                    </ErrorBoundary>
+                )}
+            />
         ))}
-      </Routes>
-    </Suspense>
-  );
-};
+    </Routes>
+
+);
+
+export default AppRouter;

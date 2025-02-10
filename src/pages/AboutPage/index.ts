@@ -1,1 +1,5 @@
-export { AboutPageAsync } from 'pages/AboutPage/ui/AboutPageAsync';
+import { AboutPageAsync } from './ui/AboutPage.async';
+
+export {
+    AboutPageAsync as AboutPage,
+};

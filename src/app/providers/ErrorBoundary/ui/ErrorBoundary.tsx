@@ -1,6 +1,5 @@
-import React, { Suspense } from 'react';
-import { type ErrorInfo, type ReactNode } from 'react';
-import { PageError } from 'widgets/PageError/ui/PageError';
+import React, { ErrorInfo, ReactNode } from 'react';
+import { ErrorPage } from 'widgets/ErrorPage/ui/ErrorPage';
 
 interface ErrorBoundaryProps {
   children: ReactNode;
@@ -10,39 +9,35 @@ interface ErrorBoundaryState {
   hasError: boolean;
 }
 
-class ErrorBoundary extends React.Component<
+export class ErrorBoundary extends React.Component<
   ErrorBoundaryProps,
   ErrorBoundaryState
 > {
-  constructor(props: ErrorBoundaryProps) {
-    super(props);
-    this.state = { hasError: false };
-  }
-
-  static getDerivedStateFromError(error: Error): { hasError: boolean } {
-    // Update state so the next render will show the fallback UI.
-    return { hasError: true };
-  }
-
-  componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
-    // You can also log the error to an error reporting service
-    console.log(error, errorInfo);
-  }
-
-  render(): ReactNode {
-    const { hasError } = this.state;
-    const { children } = this.props;
-    if (hasError) {
-      // You can render any custom fallback UI
-      return (
-        <Suspense fallback="">
-          <PageError />
-        </Suspense>
-      );
+    constructor(props: ErrorBoundaryProps) {
+        super(props);
+        this.state = { hasError: false };
     }
 
-    return children;
-  }
-}
+    static getDerivedStateFromError(): ErrorBoundaryState {
+    // Update state so the next render will show the fallback UI.
+        return { hasError: true };
+    }
 
-export default ErrorBoundary;
+    componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+    // You can also log the error to an error reporting service
+        console.log(error, errorInfo);
+    }
+
+    render() {
+        const { hasError } = this.state;
+        const { children } = this.props;
+
+        if (hasError) {
+            return (
+                <ErrorPage />
+            );
+        }
+
+        return children;
+    }
+}

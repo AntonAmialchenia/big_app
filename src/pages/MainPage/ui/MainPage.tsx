@@ -1,11 +1,14 @@
-import { type FC } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-interface MainPageProps {}
+const MainPage = () => {
+    const { t } = useTranslation();
 
-const MainPage: FC<MainPageProps> = ({}) => {
-  const { t } = useTranslation('common');
-  return <div>{t('main_page')}</div>;
+    return (
+        <div>
+            {t('Главная страница')}
+        </div>
+    );
 };
 
 export default MainPage;
