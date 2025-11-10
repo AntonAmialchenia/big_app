@@ -102,6 +102,10 @@
         "target": "chrome.app",
         "preset": "iPhone 7"
       }
-    }
+    },
+    "chromeSelector": "#root > *",
+    "diffingEngine": "pixelmatch",
+    "pixelRatio": 2,
+    "tolerance": 0
   }
 }
