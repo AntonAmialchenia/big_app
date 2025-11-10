@@ -47,8 +47,9 @@ jobs:
             libgbm1 \
             libasound2t64 \
             libxss1 \
-            libgconf-2-4 \
-            libxshmfence1
+            libxshmfence1 \
+            libgtk-3-0 \
+            libgdk-pixbuf2.0-0
         if: always()
       - name: screenshot testing
         run: npm run test:ui:ci
