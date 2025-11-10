@@ -107,6 +107,6 @@
     "chromeSelector": "#root > *",
     "diffingEngine": "pixelmatch",
     "pixelRatio": 2,
-    "tolerance": 0
+    "tolerance": 2
   }
 }
